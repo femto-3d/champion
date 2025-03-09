@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champion Products - Digital Card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="champion_products_corp_logo.png">
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="bg-white max-w-sm w-full rounded-xl overflow-hidden shadow-lg p-6 text-center">
+        <!-- Header with Background and Logo -->
+        <div class="relative">
+            <img class="w-full h-40 object-cover" src="cover.png" alt="Background">
+            <div class="absolute -bottom-10 left-1/2 transform -translate-x-1/2 rounded-full bg-white p-2">
+                <img class="w-20 h-20 object-cover rounded-full" src="champion_products_corp_logo.jpeg" alt="Company Logo">
+            </div>
+        </div>
+        
+        <!-- Company Name -->
+        <div class="mt-12">
+            <h1 class="text-2xl font-bold text-gray-900">Champion Products</h1>
+        </div>
+        
+        <!-- Client Info -->
+        <div class="mt-4">
+            <h2 class="text-xl font-bold text-gray-800">Ashok Sood</h2>
+            <p class="text-gray-600 font-medium">Chief Executive Officer</p>
+            <p class="text-gray-500 text-sm">asood@championproducts.com</p>
+        </div>
+        
+        <!-- Contact Icons -->
+        <div class="grid grid-cols-4 gap-4 mt-6 text-sm text-gray-700">
+            <a href="mailto:asood@championproducts.com" class="flex flex-col items-center"><span class="text-xl">✉️</span>Email</a>
+            <a href="tel:5199464440" class="flex flex-col items-center"><span class="text-xl">📞</span>Call</a>
+            <a href="fax:5192529053" class="flex flex-col items-center"><span class="text-xl">📠</span>Fax</a>
+            <a href="https://www.championproducts.com" target="_blank" class="flex flex-col items-center"><span class="text-xl">🌐</span>Website</a>
+            <a href="#" class="flex flex-col items-center"><span class="text-xl">💬</span>Text</a>
+            <a href="#" class="flex flex-col items-center"><span class="text-xl">📍</span>Location</a>
+            <a href="#" class="flex flex-col items-center"><span class="text-xl">📅</span>Book Me</a>
+            <a href="#" class="flex flex-col items-center"><span class="text-xl">🔗</span>Connect</a>
+        </div>
+
+        <!-- Addresses -->
+        <div class="mt-6 text-gray-700 text-sm">
+            <p><strong>2601 Wyandotte Street East,</strong> Windsor, ON N8Y 0A5</p>
+            <p><strong>140 Great Gulf Drive, Unit C,</strong> Vaughan, ON L4K 5W5</p>
+        </div>
+
+        <!-- Buttons -->
+        <div class="mt-6">
+            <button class="w-full bg-gray-800 text-white py-2 rounded-lg mb-2" onclick="addToContacts()">ADD TO CONTACTS</button>
+            <button class="w-full bg-gray-600 text-white py-2 rounded-lg" onclick="shareCard()">SHARE</button>
+        </div>
+
+        <!-- YouTube Videos -->
+        <div class="mt-6 border-t pt-4">
+            <h3 class="text-lg font-semibold text-gray-800">Featured Videos</h3>
+            <div class="mt-4 space-y-4">
+                <iframe width="100%" height="200" src="https://www.youtube.com/embed/0hB7CDJPEMM" frameborder="0" allowfullscreen></iframe>
+                <iframe width="100%" height="200" src="https://www.youtube.com/embed/aCxwIRNaPtQ" frameborder="0" allowfullscreen></iframe>
+                <iframe width="100%" height="200" src="https://www.youtube.com/embed/A6ci_roW8NY" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addToContacts() {
+            console.log('Adding contact functionality.');
+            alert('Feature to add contact will be implemented here.');
+        }
+
+        function shareCard() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Champion Products Digital Card',
+                    text: 'Check out Ashok Sood\'s business card.',
+                    url: window.location.href
+                }).catch(err => console.log('Sharing failed', err));
+            } else {
+                alert('Sharing not supported on this browser.');
+            }
+        }
+    </script>
+</body>
+</html>
