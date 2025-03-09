@@ -51,7 +51,7 @@
 
         <!-- Buttons -->
         <div class="mt-6">
-            <button class="w-full bg-gray-800 text-white py-2 rounded-lg mb-2" onclick="addToContacts()">ADD TO CONTACTS</button>
+            <button class="w-full bg-gray-800 text-white py-2 rounded-lg mb-2" onclick="downloadVCard()">ADD TO CONTACTS</button>
             <button class="w-full bg-gray-600 text-white py-2 rounded-lg" onclick="shareCard()">SHARE</button>
         </div>
 
@@ -72,7 +72,7 @@
             <h3 class="text-lg font-semibold text-gray-800">Follow Us</h3>
             <div class="flex justify-center space-x-6 mt-3 text-gray-700">
                 <a href="#" target="_blank"><i class="fab fa-facebook-f text-2xl"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-twitter text-2xl"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-x text-2xl"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-linkedin-in text-2xl"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-instagram text-2xl"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-youtube text-2xl"></i></a>
@@ -81,9 +81,16 @@
     </div>
 
     <script>
-        function addToContacts() {
-            console.log('Adding contact functionality.');
-            alert('Feature to add contact will be implemented here.');
+        function downloadVCard() {
+            const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Ashok Sood\nORG:Champion Products\nTITLE:Chief Executive Officer\nTEL;TYPE=work,voice:+1-519-946-4440\nEMAIL:asood@championproducts.com\nURL:https://www.championproducts.com\nADR;TYPE=work:;;2601 Wyandotte Street East;Windsor;ON;N8Y 0A5;Canada\nADR;TYPE=work:;;140 Great Gulf Drive, Unit C;Vaughan;ON;L4K 5W5;Canada\nEND:VCARD`;
+            
+            const blob = new Blob([vCardData], { type: 'text/vcard' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'Ashok_Sood_Champion_Products.vcf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
 
         function shareCard() {
